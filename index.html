@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MEN N BLACK | Haute Joaillerie Pour Homme</title>
+  <meta name="description" content="MEN N BLACK - Luxury Men's Haute Joaillerie. Solid 18K gold Cuban chains, natural black onyx signet rings, pavé diamond pendants, and handcrafted skeleton chronometers.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <span>✦ COMPLIMENTARY INSURED ARMORED COURIER DISPATCH ON ALL PIECES ✦</span>
+    <span>PRIVATE CONCIERGE: <a href="tel:+1800636252" class="concierge-pill">+1 (800) MEN-BLCK</a></span>
+  </div>
+
+  <!-- Main Navigation Header -->
+  <header class="navbar">
+    <div class="nav-container">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-link" aria-label="MEN N BLACK Home">
+        <img src="assets/images/logo.svg" alt="MEN N BLACK Logo" class="brand-logo-img">
+      </a>
+
+      <!-- Navigation Links -->
+      <ul class="nav-links">
+        <li><a href="#hero-dashboard" onclick="if(document.getElementById('product-detail-view') && document.getElementById('product-detail-view').style.display !== 'none') closeProductDetail();" class="nav-link active">DASHBOARD</a></li>
+        <li><a href="#products-section" onclick="if(document.getElementById('product-detail-view') && document.getElementById('product-detail-view').style.display !== 'none') closeProductDetail();" class="nav-link">ARCHIVE</a></li>
+        <li><a href="javascript:void(0)" onclick="setCategoryFilter('chains')" class="nav-link">CHAINS</a></li>
+        <li><a href="javascript:void(0)" onclick="setCategoryFilter('rings')" class="nav-link">SIGNET RINGS</a></li>
+        <li><a href="javascript:void(0)" onclick="setCategoryFilter('bracelets')" class="nav-link">BRACELETS</a></li>
+        <li><a href="javascript:void(0)" onclick="setCategoryFilter('accessories')" class="nav-link">HORLOGERIE</a></li>
+      </ul>
+
+      <!-- Navigation Action Controls -->
+      <div class="nav-actions">
+        <!-- Auth Button (Login / Register / Profile) -->
+        <button id="nav-auth-btn" class="user-pill-btn" onclick="openAuthModal('login')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>SIGN IN / JOIN</span>
+        </button>
+
+        <!-- Cart / Vault Drawer Button -->
+        <button id="cart-toggle-btn" class="nav-btn" title="Open Your Vault">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span id="cart-count-badge" class="cart-badge">0</span>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ====================================================================
+       HERO DASHBOARD: Men Model in Jewelry with Direct Navigation Down
+       ==================================================================== -->
+  <main>
+    <section id="hero-dashboard" class="hero-section">
+      <!-- High Fashion Male Model Editorial Photo Background -->
+      <div id="hero-backdrop" class="hero-backdrop">
+        <img id="hero-model-bg" src="assets/images/hero_model.jpg" alt="Gentleman wearing MEN N BLACK solid gold Cuban chain, onyx signet ring, and luxury watch" class="hero-model-img">
+      </div>
+      <div class="hero-overlay-gradient"></div>
+      <div class="hero-bottom-fade"></div>
+
+      <div class="hero-container">
+        <!-- Hero Content / Value Proposition or Product Brief -->
+        <div class="hero-content">
+          <!-- Reset button when in product mode -->
+          <div id="hero-product-badge" class="hero-dashboard-badge" style="display: none;">
+            <span>★ SPOTLIGHT CREATION</span>
+            <button onclick="resetDashboardToModel()" style="background: none; border: none; color: var(--gold-light); cursor: pointer; text-decoration: underline; font-size: 0.7rem; margin-left: 8px;">
+              [SHOW MODEL VIEW]
+            </button>
+          </div>
+
+          <div id="hero-eyebrow" class="hero-eyebrow">HAUTE JOAILLERIE POUR HOMME • EST. 2026</div>
+          <h1 id="hero-title" class="hero-title">
+            DARK SOPHISTICATION.<br>
+            <span class="gold-text">PURE LUXURY.</span>
+          </h1>
+
+          <!-- Brief Description Box when Product is Clicked -->
+          <div id="hero-brief-box" class="hero-brief-box" style="display: none;">
+            <p id="hero-brief-desc" class="hero-brief-desc">
+              Cast in solid 18K gold and set with natural black minerals.
+            </p>
+            <div id="hero-brief-specs" class="hero-brief-specs">
+              <span id="hero-brief-price">$4,850</span> • 
+              <span id="hero-brief-metal">18K Solid Gold</span> • 
+              <span id="hero-brief-rating">★ 5.0 (Certified)</span>
+            </div>
+          </div>
+
+          <p id="hero-description" class="hero-description">
+            Commanding presence sculpted in solid 18K gold, natural black onyx, and conflict-free diamonds. Crafted in limited numbered editions for the uncompromising gentleman.
+          </p>
+
+          <!-- Primary Call to Actions -->
+          <div id="hero-cta-group" class="hero-cta-group">
+            <a href="#products-section" class="btn-gold-primary">
+              <span>EXPLORE THE VAULT</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <button onclick="openAuthModal('login')" class="btn-luxury-outline">
+              <span>VIP CLIENT LOGIN</span>
+            </button>
+          </div>
+
+          <!-- Product Mode Specific Actions -->
+          <div id="hero-pdp-actions" class="hero-cta-group" style="display: none;">
+            <button id="btn-hero-acquire" class="btn-gold-primary" onclick="acquireCurrentDashboardProduct()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+              <span id="btn-hero-acquire-text">ACQUIRE FOR VAULT</span>
+            </button>
+            <button class="btn-luxury-outline" onclick="toggleAudioNarration()">
+              <span id="hero-speech-icon">🔊</span>
+              <span id="hero-speech-label">HEAR PIECE STORY</span>
+            </button>
+          </div>
+
+          <!-- Prompt leading "Down to Products" -->
+          <a href="#different-products-section" id="hero-scroll-prompt" class="scroll-down-prompt">
+            <div class="scroll-mouse">
+              <div class="scroll-dot"></div>
+            </div>
+            <span id="hero-scroll-text">DISCOVER THE CURATION DOWN TO PRODUCTS ↓</span>
+          </a>
+        </div>
+
+        <!-- Default Hotspot Showcase on Model's Jewelry Pieces -->
+        <div id="hero-hotspot-box" class="hero-hotspot-box">
+          <div class="hotspot-header">
+            <span class="hotspot-tag">AS SEEN ON THE GENTLEMAN</span>
+            <span class="hotspot-badge">LIVE ARCHIVE</span>
+          </div>
+
+          <div class="hotspot-item" data-product-id="1">
+            <img src="assets/images/product_cuban_chain.jpg" alt="Cuban Chain" class="hotspot-thumb">
+            <div class="hotspot-details">
+              <h4>The Sovereign Cuban Chain (12mm)</h4>
+              <p>$4,850 • 18K Solid Gold AU750</p>
+            </div>
+          </div>
+
+          <div class="hotspot-item" data-product-id="2">
+            <img src="assets/images/product_signet_ring.jpg" alt="Signet Ring" class="hotspot-thumb">
+            <div class="hotspot-details">
+              <h4>The Obsidian Monarch Signet Ring</h4>
+              <p>$2,400 • Black Onyx & Diamonds</p>
+            </div>
+          </div>
+
+          <div class="hotspot-item" data-product-id="6">
+            <img src="assets/images/product_black_watch.jpg" alt="Chronometer" class="hotspot-thumb">
+            <div class="hotspot-details">
+              <h4>Phantom Skeleton Chronometer</h4>
+              <p>$9,800 • Zirconia Ceramic & Gold</p>
+            </div>
+          </div>
+
+          <div style="margin-top: 14px; text-align: center;">
+            <a href="#products-section" style="color: var(--text-gold); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none;">
+              VIEW ALL 6 HANDCRAFTED CREATIONS →
+            </a>
+          </div>
+        </div>
+
+        <!-- MULTI-ANGLE INTERACTIVE SWIPER (Displayed when Product is Selected) -->
+        <div id="hero-swiper-box" class="hero-multiangle-stage" style="display: none;">
+          <div class="swiper-angle-badge" id="swiper-angle-badge">ANGLE 1 OF 3: STUDIO MACRO</div>
+          <div class="swiper-hint">⇄ SWIPE ANGLES</div>
+
+          <div class="swiper-view-port" id="swiper-viewport">
+            <div class="swiper-track" id="swiper-track">
+              <!-- Dynamically populated angle slides -->
+            </div>
+            <!-- Navigation arrows -->
+            <button type="button" class="swiper-nav-btn swiper-nav-prev" onclick="prevAngle()" aria-label="Previous angle">‹</button>
+            <button type="button" class="swiper-nav-btn swiper-nav-next" onclick="nextAngle()" aria-label="Next angle">›</button>
+          </div>
+
+          <!-- Angle Thumbnail Pills -->
+          <div class="swiper-thumbnails-row" id="swiper-thumbnails-row">
+            <!-- Dynamically populated buttons -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         DOWNSIDE: DIFFERENT PRODUCTS SHOWCASE (Shown when a product is active)
+         ==================================================================== -->
+    <section id="different-products-section" class="different-products-section" style="display: none;">
+      <div class="different-products-header">
+        <span class="section-eyebrow">CURATED SELECTION</span>
+        <h2 class="different-products-title">EXPLORE DIFFERENT ARCHIVE PIECES</h2>
+        <p class="different-products-subtitle">Touch any creation below to transform the dashboard and swipe its multiple angles.</p>
+      </div>
+      <div id="different-products-grid" class="products-grid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         LUXURY PILLARS & TRUST BADGES
+         ==================================================================== -->
+    <section class="pillars-section">
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="pillar-info">
+            <h3>GENEVA CRAFTSMANSHIP</h3>
+            <p>Hand-forged by master goldsmiths in Switzerland & Florence.</p>
+          </div>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="pillar-info">
+            <h3>CERTIFIED AUTHENTICITY</h3>
+            <p>AU750 hallmark stamped with GIA gemological passport.</p>
+          </div>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </div>
+          <div class="pillar-info">
+            <h3>ARMORED TRANSIT</h3>
+            <p>White-glove courier delivery with 100% insured transit security.</p>
+          </div>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+          </div>
+          <div class="pillar-info">
+            <h3>LIFETIME CONCIERGE</h3>
+            <p>Complimentary annual restoration, ultrasonic polish & sizing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         CURATED PRODUCTS SECTION ("Down to Products")
+         ==================================================================== -->
+    <section id="products-section" class="products-section">
+      <div class="section-header">
+        <span class="section-eyebrow">THE ARCHIVE CATALOGUE</span>
+        <h2 class="section-title">HANDCRAFTED FOR DISTINCTION</h2>
+        <p class="section-subtitle">
+          Every piece in the MEN N BLACK collection is cast in solid precious metals, precision-finished with dark minerals, and held to the highest standards of haute joaillerie.
+        </p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="filter-tabs-wrapper">
+        <button class="category-tab-btn active" data-category="all">ALL PIECES (6)</button>
+        <button class="category-tab-btn" data-category="chains">CHAINS & NECKLACES</button>
+        <button class="category-tab-btn" data-category="rings">SIGNET & DIAMOND RINGS</button>
+        <button class="category-tab-btn" data-category="bracelets">BRACELETS & CUFFS</button>
+        <button class="category-tab-btn" data-category="pendants">PENDANTS & TALISMANS</button>
+        <button class="category-tab-btn" data-category="accessories">HORLOGERIE & CUFFLINKS</button>
+      </div>
+
+      <!-- Secondary Filter & Search Bar -->
+      <div class="secondary-filter-bar">
+        <!-- Live Search -->
+        <div class="filter-search-box">
+          <svg class="filter-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="search-input" class="filter-search-input" placeholder="Search by name, metal (e.g. 18K Gold, Titanium, Onyx)...">
+        </div>
+
+        <div class="filter-dropdown-group">
+          <!-- Precious Metal Filter -->
+          <select id="metal-select" class="luxury-select">
+            <option value="">All Metals & Materials</option>
+            <option value="18K Yellow Gold">18K Solid Yellow Gold</option>
+            <option value="Titanium">Black Aeronautic Titanium</option>
+            <option value="Ceramic">Zirconia Black Ceramic</option>
+            <option value="Onyx">Natural Black Onyx</option>
+          </select>
+
+          <!-- Sorting Filter -->
+          <select id="sort-select" class="luxury-select">
+            <option value="">Featured Curation</option>
+            <option value="price_asc">Price: Low to High</option>
+            <option value="price_desc">Price: High to Low</option>
+            <option value="rating">Connoisseur Rating</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Dynamic Product Cards Grid (populated via app.js / SQL database) -->
+      <div id="products-grid" class="products-grid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         DEDICATED PRODUCT DETAIL VIEW ("Touch Product & Tells About It")
+         ==================================================================== -->
+    <section id="product-detail-view" class="product-detail-view" style="display: none;">
+      <!-- Navigation Bar with Breadcrumbs & Back Button -->
+      <div class="pdp-nav-bar">
+        <button onclick="closeProductDetail()" class="btn-back-catalogue">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          RETURN TO ARCHIVE
+        </button>
+        <div class="pdp-breadcrumbs">
+          <span>HOME</span> / <span>ARCHIVE</span> / <span id="pdp-category-breadcrumb">CHAINS</span> / <span id="pdp-name-breadcrumb" class="active">SOVEREIGN CUBAN</span>
+        </div>
+      </div>
+
+      <!-- Main Showcase Grid -->
+      <div class="pdp-main-grid">
+        <!-- Gallery & Hallmarks Column -->
+        <div class="pdp-gallery-column">
+          <div class="pdp-image-stage">
+            <img id="pdp-main-image" src="" alt="Product showcase" class="pdp-main-image">
+            <div class="pdp-hallmark-stamp">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <span id="pdp-hallmark-text">GENEVA ATELIER • AU750 STAMP</span>
+            </div>
+          </div>
+
+          <div class="pdp-trust-seals">
+            <div class="seal-pill">
+              <span>PRECIOUS METAL</span>
+              <strong id="pdp-seal-metal">18K Solid Gold</strong>
+            </div>
+            <div class="seal-pill">
+              <span>SECURITY COURIER</span>
+              <strong>Armored & Insured</strong>
+            </div>
+            <div class="seal-pill">
+              <span>CERTIFICATION</span>
+              <strong>GIA / Hallmark Passport</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Info & Craftsmanship Narrative Column -->
+        <div class="pdp-info-column">
+          <span id="pdp-metal-tag" class="pdp-eyebrow">18K SOLID YELLOW GOLD</span>
+          <h1 id="pdp-title" class="pdp-title">Product Name</h1>
+
+          <div class="pdp-rating-row">
+            <span class="pdp-stars">★★★★★</span>
+            <span id="pdp-rating-text" class="pdp-review-count">5.0 (142 Connoisseur Reviews)</span>
+            <span class="pdp-vault-status">VAULT ALLOCATION AVAILABLE</span>
+          </div>
+
+          <div class="pdp-price-row">
+            <span id="pdp-price" class="pdp-price">$4,850</span>
+            <span id="pdp-original-price" class="pdp-original-price">$5,400</span>
+          </div>
+
+          <!-- AUDIO STORYTELLER CARD ("Tells about the product") -->
+          <div class="pdp-audio-card" id="audio-presentation-card">
+            <div class="pdp-audio-info">
+              <div class="audio-narrator-badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+              </div>
+              <div class="pdp-audio-text">
+                <div style="display: flex; align-items: center;">
+                  <h4>ATELIER VOICE PRESENTATION</h4>
+                  <div class="audio-wave-bars" id="audio-wave-bars">
+                    <span class="audio-bar"></span>
+                    <span class="audio-bar"></span>
+                    <span class="audio-bar"></span>
+                    <span class="audio-bar"></span>
+                  </div>
+                </div>
+                <p id="audio-status-text">Touch play to listen to the master jeweler speak about this piece</p>
+              </div>
+            </div>
+            <button id="btn-toggle-speech" class="btn-play-narration" onclick="toggleAudioNarration()">
+              <span id="speech-btn-icon">▶</span>
+              <span id="speech-btn-label">LISTEN TO PIECE</span>
+            </button>
+          </div>
+
+          <!-- The Goldsmith Narrative Box -->
+          <div class="pdp-story-box">
+            <h3>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+              THE STORY & CRAFTSMANSHIP
+            </h3>
+            <p id="pdp-story-desc" class="pdp-story-content">
+              Cast in heavy 18K solid yellow gold, this creation represents the zenith of masculine jewelry.
+            </p>
+            <div id="pdp-quote" class="pdp-story-quote">
+              "Every link is balanced by hand in our Geneva workshop to ensure an imposing, commanding weight."
+            </div>
+
+            <!-- Technical Dossier Specs Grid -->
+            <div class="pdp-specs-grid" id="pdp-specs-grid">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Sizing & Custom Engraving -->
+          <div class="pdp-custom-box">
+            <div class="pdp-size-row" id="pdp-size-container">
+              <span class="pdp-size-label">SELECT SPECIFICATION / SIZE</span>
+              <div class="pdp-sizes-list" id="pdp-sizes-list">
+                <!-- Dynamically populated buttons -->
+              </div>
+            </div>
+
+            <div class="pdp-engraving-row">
+              <label class="pdp-size-label" for="pdp-engraving-text">COMPLIMENTARY MONOGRAM ENGRAVING</label>
+              <input type="text" id="pdp-engraving-text" class="pdp-engraving-input" placeholder="Enter up to 4 initials (e.g. J.V. or M.B.) for laser engraving" maxlength="6">
+            </div>
+          </div>
+
+          <!-- Acquisition Controls -->
+          <div class="pdp-actions-row">
+            <div class="pdp-qty-picker">
+              <button class="pdp-qty-btn" onclick="updatePdpQty(-1)">−</button>
+              <span id="pdp-qty-val" class="pdp-qty-display">1</span>
+              <button class="pdp-qty-btn" onclick="updatePdpQty(1)">+</button>
+            </div>
+            <button id="btn-pdp-acquire-action" class="btn-gold-primary btn-pdp-acquire" onclick="acquireFromPdp()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+              <span>ACQUIRE FOR VAULT</span>
+            </button>
+            <button id="btn-pdp-wish" class="btn-pdp-wishlist" onclick="togglePdpWishlist()" title="Add to Wishlist">
+              ♡
+            </button>
+          </div>
+
+          <!-- Discreet Courier Guarantee -->
+          <div style="font-size: 0.74rem; color: var(--text-muted); display: flex; align-items: center; gap: 8px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold-primary)"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/></svg>
+            <span>Dispatched in unmarked armored courier packaging with double-blind tracking & signature verification.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Complete the Look / Complementary Vault Pieces -->
+      <div style="border-top: 1px solid rgba(212, 175, 55, 0.2); padding-top: 50px;">
+        <div style="text-align: center; margin-bottom: 36px;">
+          <span class="section-eyebrow">CURATED PAIRINGS</span>
+          <h3 style="font-family: var(--font-serif); font-size: 1.8rem; letter-spacing: 0.06em;">COMPLETE THE GENTLEMAN'S LOOK</h3>
+        </div>
+        <div id="pdp-related-grid" class="products-grid">
+          <!-- Populated by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         EDITORIAL MAISON SHOWCASE BANNER
+         ==================================================================== -->
+    <section class="editorial-spotlight">
+      <img src="assets/images/model_collection_banner.jpg" alt="Gentleman wearing bespoke tuxedo and MEN N BLACK diamond cufflinks and pendant" class="editorial-bg">
+      <div class="editorial-overlay"></div>
+      <div class="editorial-container">
+        <div class="editorial-card">
+          <span style="color: var(--gold-primary); font-size: 0.76rem; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 700; margin-bottom: 14px; display: block;">
+            THE TUXEDO & BLACK TIE ATELIER
+          </span>
+          <blockquote class="editorial-quote">
+            "A gentleman’s jewelry is never mere decoration. It is an armor of intention, forged in midnight gold and black diamonds to punctuate moments of historic consequence."
+          </blockquote>
+          <div class="editorial-author">LORD JULIAN VANCE • MASTER ATELIER CURATOR</div>
+          <button onclick="setCategoryFilter('accessories')" class="btn-gold-primary">
+            DISCOVER THE EVENING COLLECTION
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================================================================
+       FOOTER
+       ==================================================================== -->
+  <footer class="luxury-footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="assets/images/logo.svg" alt="MEN N BLACK" style="height: 44px; width: auto; margin-bottom: 12px;">
+          <p>
+            MEN N BLACK is an independent Haute Joaillerie maison dedicated to architectural masculine jewelry. Handcrafted with ethical diamonds, 18K solid gold, and black minerals.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>COLLECTIONS</h4>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)" onclick="setCategoryFilter('chains')">Miami Cuban Chains</a></li>
+            <li><a href="javascript:void(0)" onclick="setCategoryFilter('rings')">Obsidian Signet Rings</a></li>
+            <li><a href="javascript:void(0)" onclick="setCategoryFilter('bracelets')">Sculpted Cuffs & Links</a></li>
+            <li><a href="javascript:void(0)" onclick="setCategoryFilter('pendants')">Diamond Talismans</a></li>
+            <li><a href="javascript:void(0)" onclick="setCategoryFilter('accessories')">Haute Horlogerie</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>CLIENT CONCIERGE</h4>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)" onclick="openAuthModal('login')">Private VIP Vault Access</a></li>
+            <li><a href="javascript:void(0)" onclick="showToast('Concierge Alert', 'Direct concierge line: concierge@mennblack.luxury')">Book Private Viewing</a></li>
+            <li><a href="javascript:void(0)" onclick="showToast('Bespoke Atelier', 'Custom gemstone commissions open for Autumn 2026.')">Bespoke Commissions</a></li>
+            <li><a href="javascript:void(0)" onclick="showToast('Security Verified', 'Armored courier transport tracking active.')">Armored Transit Protocol</a></li>
+            <li><a href="javascript:void(0)" onclick="showToast('Geneva Guarantee', 'Lifetime certificate of authenticity recorded in SQL ledger.')">Hallmark Guarantee</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-newsletter">
+          <h4>THE PRIVATE DISPATCH</h4>
+          <p>Receive confidential invitations to limited numbered releases and private salon events.</p>
+          <form onsubmit="event.preventDefault(); showToast('Dossier Registered', 'Your invitation to the private dispatch has been queued.');" class="newsletter-form">
+            <input type="email" placeholder="Enter private email..." required class="newsletter-input">
+            <button type="submit" class="btn-gold-primary" style="padding: 10px 16px; font-size: 0.72rem;">JOIN</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 MEN N BLACK HAUTE JOAILLERIE POUR HOMME. ALL RIGHTS RESERVED.</div>
+        <div>GENEVA • PARIS • MILAN • NEW YORK • TOKYO</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====================================================================
+       SLIDE-OVER CART VAULT (DRAWER)
+       ==================================================================== -->
+  <div id="cart-drawer-overlay" class="cart-drawer-overlay" onclick="closeCartDrawer()"></div>
+  <aside id="cart-drawer" class="cart-drawer">
+    <div class="cart-drawer-header">
+      <h3 class="cart-title">YOUR ACQUISITION VAULT</h3>
+      <button class="btn-close-drawer" onclick="closeCartDrawer()" aria-label="Close cart">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <div id="cart-items-container" class="cart-items-list">
+      <!-- Populated dynamically by app.js -->
+    </div>
+
+    <div class="cart-drawer-footer">
+      <!-- Promo Code Input -->
+      <div class="promo-row">
+        <input type="text" id="promo-input" class="promo-input" placeholder="VIP Privilege Key (e.g. VIP10)">
+        <button type="button" class="btn-apply-promo" onclick="applyPromoCode()">APPLY</button>
+      </div>
+
+      <!-- Price Breakdown -->
+      <div class="cart-summary-line">
+        <span>Vault Selection Subtotal:</span>
+        <span id="cart-subtotal">$0</span>
+      </div>
+
+      <div class="cart-summary-line" id="cart-discount-row" style="display: none; color: var(--gold-primary);">
+        <span>VIP Privilege Reduction:</span>
+        <span id="cart-discount-val">-$0</span>
+      </div>
+
+      <div class="cart-summary-line">
+        <span>White-Glove Armored Courier:</span>
+        <span style="color: var(--gold-primary); font-weight: 600;">COMPLIMENTARY ($0)</span>
+      </div>
+
+      <div class="cart-summary-total">
+        <span>Total Payable Amount:</span>
+        <span id="cart-total" class="gold-text">$0</span>
+      </div>
+
+      <!-- Direct In-Cart Payment Settlement & Cash On Delivery -->
+      <div class="cart-payment-section">
+        <div class="cart-payment-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          SELECT PAYMENT OPTION
+        </div>
+
+        <div class="payment-options-list">
+          <!-- 1. Cash on Delivery (COD) -->
+          <div class="payment-option-card selected" id="opt-cod" data-method="Cash on Delivery" onclick="selectInCartPayment('Cash on Delivery', this)">
+            <div class="payment-option-left">
+              <div class="payment-radio-circle"></div>
+              <div class="payment-option-info">
+                <h5>💵 CASH ON DELIVERY <span class="cod-badge">RECOMMENDED</span></h5>
+                <p>Pay cash upon white-glove armored hand delivery</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Black Card / Credit Card -->
+          <div class="payment-option-card" id="opt-card" data-method="Black Card / Credit Card" onclick="selectInCartPayment('Black Card / Credit Card', this)">
+            <div class="payment-option-left">
+              <div class="payment-radio-circle"></div>
+              <div class="payment-option-info">
+                <h5>💳 BLACK CARD / CREDIT CARD</h5>
+                <p>Centurion Protocol, Visa Infinite, Mastercard</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Instant Digital / UPI -->
+          <div class="payment-option-card" id="opt-upi" data-method="UPI / Instant Clearance" onclick="selectInCartPayment('UPI / Instant Clearance', this)">
+            <div class="payment-option-left">
+              <div class="payment-radio-circle"></div>
+              <div class="payment-option-info">
+                <h5>⚡ INSTANT UPI / DIGITAL QR</h5>
+                <p>Zero-fee encrypted instantaneous settlement</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Bank Wire -->
+          <div class="payment-option-card" id="opt-wire" data-method="Private Banker Wire" onclick="selectInCartPayment('Private Banker Wire', this)">
+            <div class="payment-option-left">
+              <div class="payment-radio-circle"></div>
+              <div class="payment-option-info">
+                <h5>🏦 PRIVATE BANK WIRE</h5>
+                <p>Direct Swiss cryptographic vault clearance</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- In-Cart Delivery Details -->
+        <div class="cart-address-box">
+          <input type="text" id="incart-name" class="cart-address-input" placeholder="Recipient Formal Name (e.g. Lord Julian Vance)">
+          <input type="text" id="incart-address" class="cart-address-input" placeholder="Insured Courier Destination (Street, Penthouse, City)">
+        </div>
+
+        <!-- Direct Instant Order Placement -->
+        <button id="btn-incart-confirm" class="btn-gold-primary btn-checkout" onclick="confirmOrderFromCart()">
+          CONFIRM ORDER • CASH ON DELIVERY
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ====================================================================
+       AUTHENTICATION MODAL (LOGIN & REGISTER)
+       ==================================================================== -->
+  <div id="auth-modal" class="modal-overlay">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">MEN N BLACK INNER CIRCLE</h3>
+        <button class="btn-close-drawer" onclick="closeModal('auth-modal')" aria-label="Close modal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Auth Tabs Switcher -->
+        <div class="auth-tabs">
+          <button id="tab-btn-login" class="auth-tab active" onclick="switchAuthTab('login')">SIGN IN TO VAULT</button>
+          <button id="tab-btn-register" class="auth-tab" onclick="switchAuthTab('register')">APPLY FOR MEMBERSHIP</button>
+        </div>
+
+        <!-- Quick Demo VIP Login Shortcut -->
+        <div class="demo-login-box">
+          <span>Demo VIP: <strong>vip_gentleman</strong> (Lord Julian Vance)</span>
+          <button type="button" class="btn-demo-fill" onclick="quickDemoFill()">AUTO FILL</button>
+        </div>
+
+        <!-- Login Form -->
+        <form id="form-login" onsubmit="handleLogin(event)">
+          <div class="form-group">
+            <label class="form-label" for="login-identifier">Username or Private Email</label>
+            <input type="text" id="login-identifier" class="form-input" placeholder="e.g. vip_gentleman or name@luxury.com" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="login-password">Master Key (Password)</label>
+            <input type="password" id="login-password" class="form-input" placeholder="••••••••••••" required>
+          </div>
+
+          <button type="submit" class="btn-gold-primary" style="width: 100%; justify-content: center; margin-top: 10px;">
+            AUTHENTICATE VAULT
+          </button>
+        </form>
+
+        <!-- Register Form -->
+        <form id="form-register" style="display: none;" onsubmit="handleRegister(event)">
+          <div class="form-group">
+            <label class="form-label" for="reg-fullname">Full Formal Name</label>
+            <input type="text" id="reg-fullname" class="form-input" placeholder="e.g. Lord Julian Vance" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-username">Preferred Vault Username</label>
+            <input type="text" id="reg-username" class="form-input" placeholder="e.g. jvance_luxury" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-email">Confidential Email</label>
+            <input type="email" id="reg-email" class="form-input" placeholder="e.g. julian@vance-estates.com" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-phone">Private Liaison Telephone (Optional)</label>
+            <input type="tel" id="reg-phone" class="form-input" placeholder="+1 (555) 019-2834">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-password">Set Master Key (Password)</label>
+            <input type="password" id="reg-password" class="form-input" placeholder="••••••••••••" required>
+          </div>
+
+          <button type="submit" class="btn-gold-primary" style="width: 100%; justify-content: center; margin-top: 10px;">
+            ESTABLISH VIP DOSSIER
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       CHECKOUT MODAL
+       ==================================================================== -->
+  <div id="checkout-modal" class="modal-overlay">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">SECURE ARMORED CHECKOUT</h3>
+        <button class="btn-close-drawer" onclick="closeModal('checkout-modal')" aria-label="Close modal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form onsubmit="handleCheckout(event)">
+          <div class="form-group">
+            <label class="form-label" for="checkout-name">Recipient Name</label>
+            <input type="text" id="checkout-name" class="form-input" placeholder="Recipient formal name" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="checkout-email">Private Confirmation Email</label>
+            <input type="email" id="checkout-email" class="form-input" placeholder="Private confirmation email" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="checkout-address">Insured Delivery Address</label>
+            <textarea id="checkout-address" class="form-input" rows="3" placeholder="Suite, Penthouse, Street Address, City, Postal Code" required style="resize: none;"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="checkout-payment">Settlement Method</label>
+            <select id="checkout-payment" class="luxury-select" style="width: 100%;">
+              <option value="Black Card / Centurion Protocol">Centurion / Black Card Protocol</option>
+              <option value="Private Banker Wire Clearance">Private Bank Wire Transfer</option>
+              <option value="Encrypted Vault Sovereign Payment">Swiss Cryptographic Vault (BTC/ETH)</option>
+              <option value="Private Concierge Liaison on Delivery">White-Glove Courier Hand Settlement</option>
+            </select>
+          </div>
+
+          <div style="background: rgba(212,175,55,0.06); border: 1px solid var(--border-gold); padding: 14px; border-radius: 4px; font-size: 0.74rem; color: var(--text-secondary); margin-bottom: 20px;">
+            🔒 All transactions recorded securely in SQL database archive. Armored transport dispatches with double-blind tracking within 24 hours.
+          </div>
+
+          <button type="submit" class="btn-gold-primary" style="width: 100%; justify-content: center;">
+            AUTHORIZE DISPATCH & SECURE PIECES
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       PROFILE / VIP VAULT MODAL
+       ==================================================================== -->
+  <div id="profile-modal" class="modal-overlay">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">VIP MEMBER DOSSIER</h3>
+        <button class="btn-close-drawer" onclick="closeModal('profile-modal')" aria-label="Close modal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div id="profile-modal-body" class="modal-body">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       QUICK VIEW MODAL
+       ==================================================================== -->
+  <div id="quick-view-modal" class="modal-overlay">
+    <div class="modal-dialog wide">
+      <div class="modal-header">
+        <h3 class="modal-title">ATELIER SPECIFICATION SHEET</h3>
+        <button class="btn-close-drawer" onclick="closeModal('quick-view-modal')" aria-label="Close modal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div id="quick-view-body" class="modal-body">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       ORDER RECEIPT CONFIRMATION MODAL
+       ==================================================================== -->
+  <div id="receipt-modal" class="modal-overlay">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">ACQUISITION CERTIFICATE</h3>
+        <button class="btn-close-drawer" onclick="closeModal('receipt-modal')" aria-label="Close modal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div id="receipt-modal-body" class="modal-body">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Client JavaScript -->
+  <script src="js/app.js"></script>
+
+  <!-- Inline Helper for category nav links -->
+  <script>
+    function setCategoryFilter(category) {
+      if (document.getElementById('product-detail-view') && document.getElementById('product-detail-view').style.display !== 'none') {
+        closeProductDetail(false);
+      }
+      const targetBtn = document.querySelector(`.category-tab-btn[data-category="${category}"]`);
+      if (targetBtn) {
+        targetBtn.click();
+      }
+      const target = document.getElementById('products-section');
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
